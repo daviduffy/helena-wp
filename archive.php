@@ -3,8 +3,6 @@
 
 <section class="row">
 
-	<?php include 'includes/prebar.php' ?>
-
 	<div class="small-12 medium-8 columns">
 
 		<div class="leader">

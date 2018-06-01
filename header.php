@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php wp_title(); ?></title>
     <?php
         if (isset($archive_page) && $archive_page) {
             echo "<meta name='robots' content='noindex, nofollow'>";
@@ -15,21 +14,34 @@
   </head>
 
   <body <?php body_class(); ?> >
+    <header class="header" id="header">
+      <button class="header__trigger u-abs-c btn--un" id="header_nav_trigger" onClick="toggleMobNav();">
+        <span class="header__bars"></span>
+      </button>
+      <div class="header__bg u-abs-c"></div>
 
-    <header class="row">
-      <h1>Amy Galbraith Photography Blog</h1>
-      <a href="<?php bloginfo('url'); ?>"><img id="header-logo" alt="logo for Amy Galbraith Photography" data-pin-no-hover="true" nopin="nopin" src="<?php header_image(); ?>"></a>
+      <!-- nav -->
+      <?php 
+        $navClass = 'header';
+        include 'includes/_navigation.php';
+        unset($navClass); ?>
+      <!-- end nav -->
 
-      <!-- menu test -->
+    </header>
+    <section class="cover u-flex">
+      <div class="cover__bg u-abs-c u-flex" style="background-image: url(<?php header_image(); ?>)" />
+      <div class="cover__t-c u-flex u-flex--c">
+        <a href="<?php bloginfo('url'); ?>" class="cover__t">
+          <h1 class="cover__h1"><?php echo get_bloginfo( 'name' ); ?></h1>
+          <p class="cover__p h4"><?php echo get_bloginfo( 'description' ); ?></p>
+        </a>
+      </div>
+      <div class="cover__nav-b" />
+    </section>
 
-      <a href="" class="nav-toggle"><span></span>Menu</a>
-      <nav>
-         <div class="navigation mobile-menu" role="complementary">
-        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Mobile Overlay Menu") ) : ?>
-        <?php endif; ?>
-        </div>
-      </nav>
+    <!-- nav -->
+    <?php 
+      $navClass = 'body';
+      include 'includes/_navigation.php'; ?>
+    <!-- end nav -->
 
-      <!-- end menu test -->
-
-</header>

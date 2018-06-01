@@ -1,0 +1,66 @@
+// Animations
+// ============================
+
+@keyframes circle-expand 
+  0% 
+
+  100%
+    clip-path:  circle(75%)
+
+@keyframes fade-in-down
+  0% 
+    opacity: 0
+    transform: translateY(-1rem)
+  
+  100% 
+    opacity: 1
+    transform: none
+
+.fade-in-down
+  opacity: 0
+  animation: fade-in-down var(--standard-easing-duration) cubic-bezier( var(--standard-easing-bezier))
+  animation-fill-mode: forwards
+  
+  
+
+@keyframes drop-in 
+  0% 
+    transform: translate(40%, 52%) scale(1.96) rotate(-20deg)
+    opacity: 0
+  
+  //   25% 
+  //     transform: translate(15%, 26%) scale(1.5) rotate(-8deg)
+  //     opacity: 1
+    
+  //   50% 
+  //     transform: translate(0%, 9%) scale(1.01) rotate(-2deg)
+  //     opacity: 1
+    
+  //   70% 
+  //     transform: translate(0%, 1%) scale(1) rotate(1deg)
+  //     opacity: 1
+  
+  100% 
+    transform: translate(0%, 0%) scale(1)
+    opacity: 1
+  
+@keyframes blur-text
+  0%
+
+  100%
+    color: transparent
+    text-shadow: 0 0 5px rgba(0,0,0,0.75)
+
+@keyframes bump-in 
+  0% 
+    transform: translateX(101%)
+  
+  99% 
+    transform: translateX(-1%)
+  
+  100% 
+    transform: translateX(0)
+  
+
+// Cards animate in
+@keyframes 

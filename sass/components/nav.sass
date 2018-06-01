@@ -1,0 +1,70 @@
+// Cover
+.nav
+  position: relative
+  color: var(--white)
+  min-height: calc(var(--nav-band-height) - var(--nav-top-offset) + 30px)
+
+  .fa-circle
+    font-size: 12px
+
+.nav__li
+  transition: color var(--standard-easing-duration) cubic-bezier( var(--standard-easing-bezier))
+
+
+  &:hover
+    color: var(--teal-dark)
+
+.nav__a
+  color: var(--white)
+  @include align-items(center)
+  cursor: pointer
+
+  // it is bad to do this
+  // & > *
+    transition: color --standard-easing-duration cubic-bezier( var(--standard-easing-bezier))
+
+  
+.nav__a-title
+  text-transform: uppercase
+  letter-spacing: 1px
+
+
+// state
+// ====================================
+.nav--closed
+  display: none
+
+.nav--header
+  // this prevents the elements inside the button from setting e.target.value to undefined
+  .nav__fa,
+  .nav__a-title
+    pointer-events: none
+  .nav__fa
+    min-width: 6rem
+    text-align: center
+  .nav__fa--i
+    font-size: 1.4rem
+  .fa-circle
+    display: none
+  .nav__a-title
+    font-weight: 300
+
+.nav--body
+  border-top: 3px solid var(--white)
+  .nav__ul
+    display: none
+    @include flex-direction(row)
+    @media screen and ( $min-width-large )
+      @include display-flex
+      float: right
+      width: 60%
+      margin-right: 3%
+      transform: translateY(-52.33%)
+      justify-content: space-around
+  .nav__a
+    @include flex-direction(column)
+  .nav__fa--i
+    min-height: 2.5rem!important
+    font-size: 1.8rem!important
+  .nav__fa
+    min-height: 1.2rem

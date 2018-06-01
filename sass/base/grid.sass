@@ -1,0 +1,31 @@
+// component that creates the plane in which each grid lives
+.p
+  @include flex-centered
+  min-height: 1400px
+  // display: grid
+  // grid-auto-rows: minmax(300px, auto)
+  // grid-auto-columns: auto
+  // grid-row-gap: 20px
+
+// main containing element that creates grid
+.g
+  padding: 10px
+  display: grid
+  grid-template-columns: repeat(60, 20px)
+  grid-template-rows: repeat(37, 16px)
+  grid-gap: 0.25rem
+
+// grid foreground content section
+.g--f
+  .c-s
+    @include material-tall--active
+
+// grid midground content section
+.g--m
+  .c-s
+    @include material-middle--active
+
+// grid midground content section
+.g--b
+  .c-s
+    @include material-short--active

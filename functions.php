@@ -8,6 +8,8 @@ remove_action('wp_head', 'wp_generator');
 
 add_theme_support( 'menus' ); // Wordpress will not give you the option to add menus to your theme without this
 add_theme_support( 'post-thumbnails' ); // Features images for posts
+add_theme_support( 'title-tag' );
+
 
 $headerArgs = array(
     'default-image' => THEME_DIR . '/img/amy_galbraith_photography_logo.png',
@@ -29,11 +31,12 @@ add_action( 'init', 'register_theme_menus' ); // when wordpress is initializing,
 
 function wpt_theme_styles() {
 
-    wp_enqueue_style( 'foundation_css', THEME_DIR . '/css/foundation.css' );
-    wp_enqueue_style( 'normalize_css', THEME_DIR . '/css/normalize.css' );
-    wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Lusitana|Quicksand:400,700' );
+    // wp_enqueue_style( 'foundation_css', THEME_DIR . '/css/foundation.css' );
+    // wp_enqueue_style( 'normalize_css', THEME_DIR . '/css/normalize.css' );
+    wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Crimson+Text|La+Belle+Aurore' );
     wp_enqueue_style( 'fontawesome_css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css' );
     wp_enqueue_style( 'style_css', THEME_DIR . '/style.css' );
+    wp_enqueue_style( 'output_min_css', THEME_DIR . '/css/output.min.css' );
 
 }
 add_action( 'wp_enqueue_scripts', 'wpt_theme_styles' );
@@ -41,9 +44,9 @@ add_action( 'wp_enqueue_scripts', 'wpt_theme_styles' );
 function wpt_theme_js() {
 
     //wp_enqueue_script( 'modernizr_js', THEME_DIR . '/js/modernizr.js', '', '', false );
-    wp_enqueue_script( 'sticky_js', THEME_DIR . '/js/jquery.sticky.js', array('jquery'), '', true );
-    wp_enqueue_script( 'foundation_js', THEME_DIR . '/js/foundation.min.js', array( 'jquery' ), '', true ); // true outputs to the footer
-    wp_enqueue_script( 'main_js', THEME_DIR . '/js/app.js', array( 'jquery', 'foundation_js', 'sticky_js' ), '', true );
+    // wp_enqueue_script( 'sticky_js', THEME_DIR . '/js/jquery.sticky.js', array('jquery'), '', true );
+    // wp_enqueue_script( 'foundation_js', THEME_DIR . '/js/foundation.min.js', array( 'jquery' ), '', true ); // true outputs to the footer
+    wp_enqueue_script( 'main_js', THEME_DIR . '/js/output.min.js', '', '', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'wpt_theme_js' );

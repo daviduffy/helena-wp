@@ -1,3 +1,5 @@
+'use strict';
+
 // jQuery(document).ready(function( $ ) {  // using this special notation for "no conflict" jQuery.
 
 //     var $prebar = $( '#amy-prebar' );
@@ -29,8 +31,9 @@
 
 console.log('test');
 
-const toggleMobNav = () => {
-  const elem = document.getElementById('header');
-  const className = 'header--open';
+var toggleMobNav = function toggleMobNav() {
+  var elem = document.getElementById('header');
+  var className = 'header--open';
   elem.classList.toggle(className);
 };
+//# sourceMappingURL=output.js.map
