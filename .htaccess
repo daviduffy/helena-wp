@@ -1,22 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @daviduffy
-Sign out
-21
-68 56 Creare/WP-htaccess
- Code  Issues 1  Pull requests 0  Projects 0  Wiki  Insights
-WP-htaccess/.htaccess
-4781711  on Aug 10, 2015
-@IcyApril IcyApril More security improvements.
-@IcyApril @meishern @CreareLead
-     
-210 lines (172 sloc)  6.01 KB
 ###########################
 # WP htaccess Boilerplate #
 ###########################

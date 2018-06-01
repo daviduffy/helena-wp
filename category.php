@@ -21,14 +21,7 @@
 		<!-- end cards -->
 
   </div>
-  <div class="gallery__c-more u-flex u-flex--c">
-    <button class="h6 gallery__more btn btn--more" id="more">See All</button>
-  </div>
 </main>
-<div class="x u-abs-c">
-  <button class="u-abs-c btn--un"></button>
-</div>
-
 
 <section class="row">
 
