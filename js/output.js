@@ -36,4 +36,29 @@ var toggleMobNav = function toggleMobNav() {
   var className = 'header--open';
   elem.classList.toggle(className);
 };
+
+var toggleBackdrop = {
+  backdrop: document.getElementById('backdrop'),
+  id: null,
+  closeElement: null,
+  focusedElement: null,
+  focus: function focus(elem) {
+    var t = toggleBackdrop;
+    t.id = elem.id;
+    t.focusedElement = document.getElementById(t.id + '_lg');
+    t.closeElement = document.getElementById(t.id + '_close');
+    t.focusedElement.classList.add('card--active');
+    t.backdrop.classList.add('gallery__backdrop--active');
+    t.backdrop.addEventListener('click', toggleBackdrop.blur, false);
+    t.closeElement.addEventListener('click', toggleBackdrop.blur, false);
+  },
+  blur: function blur(e) {
+    console.log(e);
+    var t = toggleBackdrop;
+    t.focusedElement.classList.remove('card--active');
+    t.backdrop.classList.remove('gallery__backdrop--active');
+    t.backdrop.removeEventListener('click', toggleBackdrop.blur, false);
+    t.closeElement.removeEventListener('click', toggleBackdrop.blur, false);
+  }
+};
 //# sourceMappingURL=output.js.map
