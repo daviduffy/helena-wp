@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+  get_header();
+  $id = get_the_ID();
+?>
 
 <main class="main">
   <div class="gallery gallery--flex" id="gallery" >
@@ -10,7 +13,7 @@
 			  </div>
 			  <div class='card__cont u-flex u-flex--c'>
 			    <h3 class='h6 card__title'><?php the_title(); ?></h3>
-			    <p class='h6 card__sub'><?php the_excerpt(); ?></p>
+          <?php  echo '<p class="h6 card__sub">' . get_the_excerpt() . '</p>' ?>
 			  </div>
 			</button>
 		<?php endwhile; else : ?>
@@ -23,23 +26,31 @@
   <!-- large cards -->
 	<div class="gallery__backdrop" id="backdrop"></div>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  	<section class='card card--large' id="post_<?php echo get_the_ID(); ?>_lg">
-  	  <div class='card__img'>
-  	    <?php the_post_thumbnail(); ?>
-  	  </div>
+    <?php
+      $orientation = get_post_meta($id, 'orientation', true);
+      $youtube = get_post_meta($id, 'youtube', true);
+    ?>
+  	<section class="card card--large <?php echo $orientation != '' ? "card--$orientation" : ''; ?>" id="post_<?php echo get_the_ID(); ?>_lg">
+  	  <div class='card__img<?php if ($youtube) { echo ' card__img--youtube'; } ?>' style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+        <?php if ($youtube): ?>
+           <div class='embed-container'><iframe src='<?php echo $youtube; ?>' frameborder='0' allowfullscreen></iframe>
+        <?php endif; ?>
+       </div> 
+      </div>
   	  <div class='card__cont u-flex'>
   	  	<div class='card__cont-1'>
 	  	    <h3 class='h6 card__title'><?php the_title(); ?></h3>
-	  	    <p class='h6 card__sub'><?php the_excerpt(); ?></p>
-	  	    <button class="card__close btn--un" id="post_<?php echo get_the_ID(); ?>_close">
+          <?php  echo '<p class="h6 card__sub">' . get_the_excerpt() . '</p>' ?>
+	  	    <button class="card__close btn--un" id="post_<?php echo $id; ?>_close">
 	  	    	<i>&times;</i>
-		  	    &nbsp;close
+		  	    <span>&nbsp;close</span>
 		  	  </button>
   	  	</div>
   	  	<div class='card__cont-2'>
 	  	    <p class='h6 card__sub'><?php the_content(); ?></p>
   	  	</div>
   	  </div>
+
   	</section>
   <?php endwhile; else : ?>
   <?php endif; ?>

@@ -22,35 +22,106 @@
 .card--small
   cursor: pointer
 
+.card__cont
+  position: relative
 
 .card--large
+  +display-flex
+  position: fixed
   min-width: initial!important
   max-width: 1000px!important
-  max-height: 800px
-  position: fixed
+  max-height: 100vh
   z-index: 2
   top: 0
   right: 0
   bottom: 0
   left: 0
-  margin: auto!important
   width: 100%
   height: 100%
   opacity: 0
   transition: opacity 0.3s ease-in-out
   pointer-events: none
   @media screen and ($min-width-medium)
+    position: fixed
+    margin: auto!important
+    max-height: $card-overlay-height
     width: 90%
     height: 90%
 
+  .card__img
+    +flex-shorthand(5)
+    +align-self(stretch)
+    background: #444 center / contain no-repeat
+    // +display-flex
+    // flex-direction(column)
+
   .card__cont
+    +flex-shorthand(2)
+    +flex-direction(row)
     width: 100%
     padding: 1.5rem
-    +flex-direction(row)
 
 .card--active
   opacity: 1
   pointer-events: initial
+  .card__cont
+    padding: 0.875rem
+    +align-self(stretch)
+    +flex-direction(column)
+    @media screen and ($min-width-medium)
+      padding: 1.5rem
+
+  .card__cont-1
+    +display-flex
+    +justify-content(center)
+    +flex-direction(column)
+    margin-bottom: 0.875rem
+    @media screen and ($min-width-medium)
+      margin-bottom: 0
+
+  .card__close
+    +display-flex
+    +align-items(center)
+    position: absolute
+    right: 0.875rem
+    top: 0.875rem
+    @media screen and ($min-width-medium)
+      position: initial
+
+.card--vertical
+  +display-flex
+  @media screen and ($min-width-medium)
+    +flex-direction(row)
+
+  .card__img
+    background: #444 center / contain no-repeat
+    @media screen and ($min-width-medium)
+      background: #444 center / cover no-repeat
+      +flex-shorthand(2.2)
+      height: 100%
+
+  // .card__cont
+  //   padding: 0.875rem
+  //   +align-self(stretch)
+  //   +flex-direction(column)
+  //   @media screen and ($min-width-medium)
+  //     padding: 1.5rem
+
+  // .card__cont-1
+  //   +display-flex
+  //   +justify-content(center)
+  //   +flex-direction(column)
+  //   margin-bottom: 0.875rem
+  //   @media screen and ($min-width-medium)
+  //     margin-bottom: 0
+
+  // .card__close
+  //   position: absolute
+  //   right: 0.875rem
+  //   top: 0.875rem
+
+.card__img--youtube.card__img--youtube
+  +flex-shorthand(unset)
 
 .card__img-c
   @include flex-shorthand(1)
@@ -86,7 +157,7 @@
   cursor: pointer
   font-size: 1rem
   padding: 0
-  color: var(--red)
+  color: var(--red)!important
   i
     font-style: normal
     font-size: 1.33rem
