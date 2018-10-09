@@ -50,6 +50,7 @@
 
   .card__img
     +flex-shorthand(5)
+    min-height: 71.4% // 5 / 7
     +align-self(stretch)
     background: #444 center / contain no-repeat
     // +display-flex
@@ -85,8 +86,6 @@
     position: absolute
     right: 0.875rem
     top: 0.875rem
-    @media screen and ($min-width-medium)
-      position: initial
 
 .card--vertical
   +display-flex
@@ -123,15 +122,20 @@
 .card__img--youtube.card__img--youtube
   +flex-shorthand(unset)
 
+  .card__img
+    min-height: unset
+
 .card__img-c
   @include flex-shorthand(1)
 
 .card__img
+  +display-flex
+  +align-items(center)
   max-width: 100%
+  @include flex-shorthand(1)
 
 .card__cont
   min-height: 115px
-  @include flex-shorthand(1)
   @include flex-direction(column)
 
 .card__cont-1

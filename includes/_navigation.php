@@ -19,7 +19,7 @@
         <a href="/category/features#gallery" class="nav__a btn--un u-flex">
           <i class="nav__fa nav__fa--i fa fa-film" aria-hidden="true"></i>
           <i class="nav__fa fa fa-circle" aria-hidden="true"></i>
-          <h2 class="h6 nav__a-title">features</h2>
+          <h2 class="h6 nav__a-title">features/TV</h2>
         </a>
     </li>
     <li class="nav__li<?php echo (is_category('music-videos') ? ' nav__li--active' : ''); ?>">
@@ -27,6 +27,13 @@
           <i class="nav__fa nav__fa--i fa fa-television" aria-hidden="true"></i>
           <i class="nav__fa fa fa-circle" aria-hidden="true"></i>
           <h2 class="h6 nav__a-title">music videos</h2>
+        </a>
+    </li>
+    <li class="nav__li<?php echo (is_page('resume') ? ' nav__li--active' : ''); ?>">
+        <a href="/resume" class="nav__a btn--un u-flex">
+          <i class="nav__fa nav__fa--i fa fa-file-o" aria-hidden="true"></i>
+          <i class="nav__fa fa fa-circle" aria-hidden="true"></i>
+          <h2 class="h6 nav__a-title">additional work</h2>
         </a>
     </li>
     <li class="nav__li<?php echo (is_page('contact') ? ' nav__li--active' : ''); ?>">

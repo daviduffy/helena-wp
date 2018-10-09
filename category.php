@@ -30,12 +30,8 @@
       $orientation = get_post_meta($id, 'orientation', true);
       $youtube = get_post_meta($id, 'youtube', true);
     ?>
-  	<section class="card card--large <?php echo $orientation != '' ? "card--$orientation" : ''; ?>" id="post_<?php echo get_the_ID(); ?>_lg">
-  	  <div class='card__img<?php if ($youtube) { echo ' card__img--youtube'; } ?>' style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-        <?php if ($youtube): ?>
-           <div class='embed-container'><iframe src='<?php echo $youtube; ?>' frameborder='0' allowfullscreen></iframe>
-        <?php endif; ?>
-       </div> 
+  	<section class="card card--large <?php echo $orientation != '' ? "card--$orientation" : ''; ?>" id="post_<?php echo get_the_ID(); ?>_lg" <?php if ($youtube) echo "data-iframe-src='$youtube'"; ?>>
+  	  <div class='card__img<?php if ($youtube) { echo ' card__img--youtube'; } ?>' style="background-image: url('<?php the_post_thumbnail_url(); ?>')"></div>
       </div>
   	  <div class='card__cont u-flex'>
   	  	<div class='card__cont-1'>
