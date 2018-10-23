@@ -39,7 +39,6 @@ var toggleBackdrop = {
     t.focusedElement.classList.remove('card--active');
     var video = t.focusedElement.querySelector('.embed-container');
     video.remove();
-    console.log(t.focusedElement);
     t.backdrop.classList.remove('gallery__backdrop--active');
     t.backdrop.removeEventListener('click', toggleBackdrop.blur, false);
     t.closeElement.removeEventListener('click', toggleBackdrop.blur, false);
